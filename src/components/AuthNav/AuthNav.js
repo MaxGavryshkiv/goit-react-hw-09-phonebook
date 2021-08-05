@@ -13,12 +13,6 @@ const AuthNav = () => (
         <Button>Log in</Button>
       </LinkContainer>
     </ButtonToolbar>
-    {/* <NavLink to="/register" exact>
-      Register
-    </NavLink>
-    <NavLink to="/login" exact>
-      Log in
-    </NavLink> */}
   </div>
 );
 
