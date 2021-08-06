@@ -1,23 +1,34 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { authSelectors, authOperations } from '../../store/auth';
 
-const UserMenu = ({ email, onLogout }) => (
-  <div className="UserMenu">
-    <span>{email}</span>
-    <Button className="ml5" type="button" onClick={onLogout}>
-      Logout
-    </Button>
-  </div>
-);
+export default function UserMenu() {
+  const email = useSelector(authSelectors.getUseremail);
+  const dispatch = useDispatch();
 
-const mapStateToProps = state => ({
-  email: authSelectors.getUseremail(state),
-});
+  // const onLogout = dispatch(authOperations.logOut);
 
-const mapDispatchToProps = {
-  onLogout: authOperations.logOut,
-};
+  return (
+    <div className="UserMenu">
+      <span>{email}</span>
+      <Button
+        className="ml5"
+        type="button"
+        onClick={dispatch(authOperations.logOut)}
+      >
+        Logout
+      </Button>
+    </div>
+  );
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+// const mapStateToProps = state => ({
+//   email: authSelectors.getUseremail(state),
+// });
+
+// const mapDispatchToProps = {
+//   onLogout: authOperations.logOut,
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

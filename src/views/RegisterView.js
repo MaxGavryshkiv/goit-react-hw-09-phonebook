@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { authOperations } from '../store/auth';
 
-function RegisterView({ onRegister }) {
+export default function RegisterView() {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +19,7 @@ function RegisterView({ onRegister }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    onRegister({ name, email, password });
+    dispatch(authOperations.register({ name, email, password }));
 
     setName('');
     setEmail('');
@@ -83,11 +84,11 @@ function RegisterView({ onRegister }) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  onRegister: data => dispatch(authOperations.register(data)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   onRegister: data => dispatch(authOperations.register(data)),
+// });
 
-export default connect(null, mapDispatchToProps)(RegisterView);
+// export default connect(null, mapDispatchToProps)(RegisterView);
 
 // class RegisterView extends Component {
 //   state = {

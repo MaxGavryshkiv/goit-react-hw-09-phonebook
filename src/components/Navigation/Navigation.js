@@ -1,24 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { ButtonToolbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { authSelectors } from '../../store/auth';
 
-const Navigation = ({ isAuthenticated }) => (
-  <nav>
-    {isAuthenticated && (
-      <ButtonToolbar className="custom-btn-toolbar-contact">
-        <LinkContainer exact to="/contacts">
-          <Button>Contacts</Button>
-        </LinkContainer>
-      </ButtonToolbar>
-    )}
-  </nav>
-);
+export default function Navigation() {
+  const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
 
-const mapStateToProps = state => ({
-  isAuthenticated: authSelectors.getIsAuthenticated(state),
-});
+  return (
+    <nav>
+      {isLoggedIn && (
+        <ButtonToolbar className="custom-btn-toolbar-contact">
+          <LinkContainer exact to="/contacts">
+            <Button>Contacts</Button>
+          </LinkContainer>
+        </ButtonToolbar>
+      )}
+    </nav>
+  );
+}
 
-export default connect(mapStateToProps)(Navigation);
+// const mapStateToProps = state => ({
+//   isAuthenticated: authSelectors.getIsAuthenticated(state),
+// });
+
+// export default connect(mapStateToProps)(Navigation);

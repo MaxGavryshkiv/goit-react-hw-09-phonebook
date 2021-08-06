@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { authOperations } from '../store/auth';
 
-function LoginView({ onLogin }) {
+export default function LoginView() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,7 +17,7 @@ function LoginView({ onLogin }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    onLogin({ email, password });
+    dispatch(authOperations.logIn({ email, password }));
 
     setEmail('');
     setPassword('');
@@ -64,11 +65,11 @@ function LoginView({ onLogin }) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  onLogin: data => dispatch(authOperations.logIn(data)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   onLogin: data => dispatch(authOperations.logIn(data)),
+// });
 
-export default connect(null, mapDispatchToProps)(LoginView);
+// export default connect(null, mapDispatchToProps)(LoginView);
 
 // class LoginView extends Component {
 //   state = {

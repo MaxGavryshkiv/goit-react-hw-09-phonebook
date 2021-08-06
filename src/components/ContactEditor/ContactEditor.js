@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -7,7 +7,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import { contactOperations, contactSelectors } from '../../store/constact';
 
-function ContactEditor({ contacts, onSubmit }) {
+export default function ContactEditor() {
+  const contacts = useSelector(contactSelectors.getAllContacts);
+  const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -24,7 +27,7 @@ function ContactEditor({ contacts, onSubmit }) {
     ) {
       alert(`${name} is already in contacts.`);
     } else {
-      onSubmit(name, number);
+      dispatch(contactOperations.addContact(name, number));
       setName('');
       setNumber('');
     }
@@ -77,16 +80,16 @@ function ContactEditor({ contacts, onSubmit }) {
   );
 }
 
-const mapStateToProps = state => ({
-  contacts: contactSelectors.getAllContacts(state),
-});
+// const mapStateToProps = state => ({
+//   contacts: contactSelectors.getAllContacts(state),
+// });
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: (name, number) =>
-    dispatch(contactOperations.addContact(name, number)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   onSubmit: (name, number) =>
+//     dispatch(contactOperations.addContact(name, number)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactEditor);
+// export default connect(mapStateToProps, mapDispatchToProps)(ContactEditor);
 
 // class ContactEditor extends Component {
 //   state = {
