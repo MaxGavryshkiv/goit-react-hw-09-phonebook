@@ -1,46 +1,45 @@
 .Form {
   margin-left: 1rem;
 }
-
-.hedders {
-  margin-bottom: 50px;
-  margin-left: 1rem;
-}
-
 li {
   list-style: none;
   display: flex;
-  margin-top: 10px;
+  align-items: baseline;
 }
-.button {
-  margin-left: 5px;
-}
-.ml {
-  margin-left: 30px;
-}
-.ml5 {
-  margin-left: 5px;
-}
-.ContactList {
-  margin-top: 10px;
-}
-.UserMenu {
-  position: absolute;
-  right: 10px;
-}
-.custom-btn-toolbar-contact {
-  display: inline !important;
-  position: absolute;
-  right: 10px;
-  top: 50px;
+.contact {
+  margin-right: 5px;
 }
 .custom-btn-toolbar {
   display: inline !important;
-  position: absolute;
-  right: 10px;
 }
 
 .custom-btn-toolbar > .btn {
   margin-right: 1rem;
   margin-top: 0.5rem;
+}
+.mainContainer {
+  padding-top: 100px;
+  padding-bottom: 5px;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  display: flex;
+}
+.UserMenu {
+  justify-content: center;
+}
+.naviation {
+  align-items: center;
+  margin-right: auto;
+}
+.AuthNav {
+  margin-right: auto;
 }

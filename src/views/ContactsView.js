@@ -14,16 +14,16 @@ export default function ContactsView() {
   }, [dispatch]);
 
   return (
-    <>
-      <h1 className="hedders">Phonebook </h1>
+    <div className="mainContact mainContainer">
+      <h1>Phonebook </h1>
       <ContactEditor />
       <div className="ContactList">
-        <h2 className="ml">Contacts</h2>
+        <h2>Contacts</h2>
         <Finder />
         {isLoadingContacts && <h1>...Loading</h1>}
         <ContactList />
       </div>
-    </>
+    </div>
   );
 }
 

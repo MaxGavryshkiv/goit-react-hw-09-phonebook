@@ -12,11 +12,10 @@ export default function ContactList() {
       <ul>
         {contacts.map(({ id, name, number }) => (
           <li key={id}>
-            <p>
+            <p className="contact">
               {name}:{number}
             </p>
             <Button
-              className="button"
               type="button"
               onClick={() => dispatch(contactOperations.deleteContact(id))}
             >

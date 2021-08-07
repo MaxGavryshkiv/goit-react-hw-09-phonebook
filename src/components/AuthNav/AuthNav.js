@@ -4,8 +4,8 @@ import { ButtonToolbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const AuthNav = () => (
-  <div>
-    <ButtonToolbar className="custom-btn-toolbar">
+  <div className="AuthNav">
+    <ButtonToolbar className="custom-btn-toolbar ">
       <LinkContainer to="/register">
         <Button>Register</Button>
       </LinkContainer>

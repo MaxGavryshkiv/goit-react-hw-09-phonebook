@@ -9,9 +9,9 @@ export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
 
   return (
-    <nav>
+    <nav className="naviation">
       {isLoggedIn && (
-        <ButtonToolbar className="custom-btn-toolbar-contact">
+        <ButtonToolbar>
           <LinkContainer exact to="/contacts">
             <Button>Contacts</Button>
           </LinkContainer>

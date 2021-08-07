@@ -27,8 +27,8 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
-      <h1 className="hedders">Register Page</h1>
+    <div className="mainRegister mainContainer">
+      <h1>Register Page</h1>
       <Form onSubmit={handleSubmit} className="Form">
         <FloatingLabel
           as={Col}

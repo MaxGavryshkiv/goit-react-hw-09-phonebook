@@ -8,9 +8,15 @@ import { authSelectors } from '../../store/auth';
 export default function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
   return (
-    <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    <header className="header">
+      {isLoggedIn ? (
+        <>
+          <Navigation />
+          <UserMenu />
+        </>
+      ) : (
+        <AuthNav />
+      )}
     </header>
   );
 }

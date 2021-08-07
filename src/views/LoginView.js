@@ -24,8 +24,8 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1 className="hedders">Login Page</h1>
+    <div className="mainLogin mainContainer">
+      <h1>Login Page</h1>
 
       <Form onSubmit={handleSubmit} className="Form">
         <FloatingLabel
